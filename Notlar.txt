@@ -1,0 +1,4 @@
+Typescript transpiler aracılığı ile javascript kodlarına çevrilir. Jss'in tipli kullanım versiyonu diyebiliriz. Geliştirme zamanında yazdığımız hataları görmemizi sağlıyor.
+
+Yazdığımız ts kodlarını direk çalıştırma ortamına atmıyoruz da bir transpiler ile js dosyası oluşturulur. Örneğin main.ts dosyası 
+ts main.ts diyerek main.js dosyasına dönüşür.
