@@ -1,0 +1,1 @@
+Typescript öğrenirken aldığım notlar.
