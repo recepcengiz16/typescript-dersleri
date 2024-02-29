@@ -2,7 +2,7 @@ import {IProductService} from "./IProductService";
 import { Product } from "./Product";
 import { SimpleDataSource } from "./SimpleDataSource";
 
-class ProductService implements IProductService {
+export class ProductService implements IProductService {
 
     private dataSource:SimpleDataSource;
     private products:Array<Product>;
