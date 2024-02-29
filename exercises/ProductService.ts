@@ -1,19 +1,49 @@
 import {IProductService} from "./IProductService";
 import { Product } from "./Product";
+import { SimpleDataSource } from "./SimpleDataSource";
 
 class ProductService implements IProductService {
+
+    private dataSource:SimpleDataSource;
+    private products:Array<Product>;
+
+    constructor(){
+        this.dataSource=new SimpleDataSource();
+        this.products=this.dataSource.getProducts();
+    }
     
     getById(id: number): Product {
-        throw new Error("Method not implemented.");
+       return this.products.filter(x=>x.id==id)[0];
     }
     getProducts(): Product[] {
-        throw new Error("Method not implemented.");
+        return this.products;
     }
     saveProduct(product: Product): void {
-        throw new Error("Method not implemented.");
+        
+        if (product.id==0 || product.id==null) {
+            product.id=this.generateId();
+            this.products.push(product);
+        }else {
+            let index = this.products.indexOf(product);
+            this.products.splice(index,1,product);
+        }
+
     }
     deleteProduct(product: Product): void {
-        throw new Error("Method not implemented.");
+        let index = this.products.indexOf(product);
+        if (index>0) {
+            this.products.splice(index,1);
+        }
+    }
+
+    private generateId():number{
+        let key=1;
+
+        while(this.getById(key)!=null){
+            key++;
+        }
+        return key;
+
     }
 
 }
