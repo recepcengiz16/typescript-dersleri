@@ -29,3 +29,23 @@ recep = {
         contrast: "%40",
     }
 }
+
+//type sözde öğesi ile fonksiyon parametrelerimizi ve dönüş tipimizi tek bir yerde tanımlayabiliriz.
+
+
+type Topla = (num1: number, num2: number) => number;
+
+const topla: Topla = (num1, num2) => {
+    return num1 + num2;
+}
+
+//veya fonksiyonlarda aşağıdaki gibi kullanabiliriz.
+
+type FullName = {
+    name: string;
+    surname: string;
+}
+
+const getFullName = (params: FullName) => {
+    console.log(params.name + params.surname)
+}
